@@ -19,5 +19,5 @@ class Agente {
     }
 }
 
-let ryan:Agente = new Agente("ryan","veloz","soldado razo");
-console.log(ryan);
+let jamesBond:Agente = new Agente("hola","veloz","soldado razo");
+console.log(jamesBond);

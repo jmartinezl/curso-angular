@@ -11,5 +11,5 @@ var Agente = /** @class */ (function () {
     }
     return Agente;
 }());
-var ryan = new Agente("ryan", "veloz", "soldado razo");
-console.log(ryan);
+var jamesBond = new Agente("hola", "veloz", "soldado razo");
+console.log(jamesBond);
