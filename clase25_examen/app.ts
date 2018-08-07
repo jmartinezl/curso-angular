@@ -13,12 +13,12 @@
     // Cree una interfaz que sirva para validar el siguiente objeto
     interface Superheroe {
       nombre: string,
-      artesMarciales: any
+      artesMarciales: string[]
     }
 
     let batman:Superheroe ={
-      nombre: "Bruce",
-      artesMarciales: ['Jujitsu','Ninjutsu']      
+      nombre: "Batmana",
+      artesMarciales: ['Jujitsu','Ninjutsu']
     }
 
 

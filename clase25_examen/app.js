@@ -7,7 +7,7 @@ var PERSONAJE = {
 };
 console.log(PERSONAJE);
 var batman = {
-    nombre: "Bruce",
+    nombre: "Batmana",
     artesMarciales: ['Jujitsu', 'Ninjutsu']
 };
 // Convertir esta funcion a una funcion de flecha
