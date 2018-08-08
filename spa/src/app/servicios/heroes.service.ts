@@ -98,5 +98,6 @@ export interface Heroe {
   bio:string,
   img:string,
   aparicion:string,
-  casa:string
+  casa:string,
+  index?:string
 }
