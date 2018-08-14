@@ -9,11 +9,29 @@ export class SpotifyService {
 
   constructor(private http:HttpClient) { }
 
+  private getToken(){
+
+
+      let post_data = {
+        'client_id' : '5f3b0ad80e9645a09b7aa876bbd57b60',
+        'client_secret' : '22fe8f657e674ee8a77b314b60667a8a',
+        'grant_type' : 'client_credentials',
+      }
+
+
+       this.http.post('https://accounts.spotify.com/api/token?grant_type=client_credentials', post_data);
+
+       localStorage.setItem("auth_token", "value");
+  }
+
   getQuery(query:string){
     const URL =`https://api.spotify.com/v1/${query}`;
 
+    //let authToken = localStorage.getItem('auth_token');
+    //'Authorization':`Bearer ${authToken}`
+
     const headers = new HttpHeaders({
-        'Authorization':'Bearer BQD19eHBuX8BoI2ak37WMAwV2NqIOil6KyQ38bT8pF9mj7ofHyZmWweDn_7jw40p4AS_UXnESya0QBko70rVMcEJ6iolIfWIwdCj1_7jwsLa97lH_mn349ziV5P-1fy7OlnXcM8yWrhhwWKG84sE'
+        'Authorization':'Bearer BQArjnBzQB9l7HLnJ7Y0UzrdlwpTHCxoXsy_INlJk8FoR-8QXEu3NU8pm0e8YMqGohJ3p9Zh03AhoGwYWgg'
     });
 
     return this.http.get(URL,{headers})
