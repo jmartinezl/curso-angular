@@ -12,16 +12,24 @@ export class SpotifyService {
   private getToken(){
 
 
-      let post_data = {
-        'client_id' : '5f3b0ad80e9645a09b7aa876bbd57b60',
-        'client_secret' : '22fe8f657e674ee8a77b314b60667a8a',
-        'grant_type' : 'client_credentials',
-      }
+    let headers = new HttpHeaders();
+    headers = headers.set("Content-Type", "application/x-www-form-urlencoded");
 
 
-       this.http.post('https://accounts.spotify.com/api/token?grant_type=client_credentials', post_data);
+    let post_data = {
+      'client_id' : '',
+      'client_secret' : '',
+      'grant_type' : 'client_credentials',
+    }
 
-       localStorage.setItem("auth_token", "value");
+    this.http.post('https://accounts.spotify.com/api/token?grant_type=client_credentials', post_data, {
+      headers: headers,
+    })
+      .subscribe(resp => {
+      console.log("response %o, ", resp);
+    });
+
+    localStorage.setItem("auth_token", "value");
   }
 
   getQuery(query:string){
@@ -31,7 +39,7 @@ export class SpotifyService {
     //'Authorization':`Bearer ${authToken}`
 
     const headers = new HttpHeaders({
-        'Authorization':'Bearer BQArjnBzQB9l7HLnJ7Y0UzrdlwpTHCxoXsy_INlJk8FoR-8QXEu3NU8pm0e8YMqGohJ3p9Zh03AhoGwYWgg'
+        'Authorization':'Bearer BQDcnJyd7x2B3b4qBqiEXcqKUZbSwtI2gltD_dFlplphlN8aGjhd4oWXPMHOVQei2NTKYsye6AZTCu5tDT8'
     });
 
     return this.http.get(URL,{headers})
@@ -43,7 +51,19 @@ export class SpotifyService {
       .pipe(map(data => data['albums'].items));
   }
 
-  getArtista(termino:string){
+  getArtista(id:string){
+    return this.getQuery(`artists/${id}`)
+    //.pipe(map(data => data['artists'].items));
+
+  }
+
+  getTopTracks(id:string){
+    return this.getQuery(`artists/${id}/top-tracks?country=MX`)
+    .pipe(map(data => data['tracks']));
+
+  }
+
+  getArtistas(termino:string){
 
     return this.getQuery(`search?q=${termino}&type=artist`)
     .pipe(map(data => data['artists'].items));
