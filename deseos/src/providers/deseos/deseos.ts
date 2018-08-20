@@ -14,7 +14,7 @@ export class DeseosProvider {
 
   constructor() {
     const lista1 = new Lista('Recolectar piedras');
-    const lista2 = new Lista('Recolectar piedras');
+    const lista2 = new Lista('Recolectar mangos');
 
     this.listas.push(lista1,lista2);
 

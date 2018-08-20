@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
 import { DeseosProvider } from '../../providers/deseos/deseos';
 import { Lista } from '../../models/lista.model';
+
 /**
- * Generated class for the TerminadosPage page.
+ * Generated class for the AgregarPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,22 +14,19 @@ import { Lista } from '../../models/lista.model';
 
 @IonicPage()
 @Component({
-  selector: 'page-terminados',
-  templateUrl: 'terminados.html',
+  selector: 'page-agregar',
+  templateUrl: 'agregar.html',
 })
-export class TerminadosPage {
+export class AgregarPage {
+
+  lista:Lista;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public deseosProvider:DeseosProvider) {
+
+    const titulo = this.navParams.get('titulo');
+    this.lista=new Lista(titulo);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TerminadosPage');
-  }
 
-
-    listaSeleccionado(lista: Lista){
-      console.log(lista);
-
-    }
 
 }

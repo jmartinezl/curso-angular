@@ -6,13 +6,23 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>pendientes</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Pendientes</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
+  <img src="../../assets/imgs/pendientes.jpg" alt="">
+  <ion-list>
+  <button ion-item *ngFor="let lista of deseosProvider.listas" (click)="listaSeleccionado(lista)">
+    {{ lista.titulo }}
+  </button>
+</ion-list>
+
+<ion-fab bottom right>
+    <button (click)="agregarLista()" ion-fab><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 
 </ion-content>

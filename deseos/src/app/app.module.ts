@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 
 import { PendientesPage } from '../pages/pendientes/pendientes';
 import { TerminadosPage } from '../pages/terminados/terminados';
+import { AgregarPage } from '../pages/agregar/agregar';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -17,7 +18,8 @@ import { DeseosProvider } from '../providers/deseos/deseos';
     MyApp,
     PendientesPage,
     TerminadosPage,
-    TabsPage
+    TabsPage,
+    AgregarPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { DeseosProvider } from '../providers/deseos/deseos';
     MyApp,
     PendientesPage,
     TerminadosPage,
-    TabsPage
+    TabsPage,
+    AgregarPage
   ],
   providers: [
     StatusBar,
